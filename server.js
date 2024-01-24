@@ -1,15 +1,15 @@
 import { app } from "./app.js";
+import { connectToMongoDB } from "#db/mongoDB.js";
 
-import dotenv from "dotenv";
+export const startServer = async () => {
+  const PORT = process.env.PORT || 3000;
 
-// Wczytanie zmiennych środowiskowych z pliku .env
-dotenv.config();
+  await connectToMongoDB();
 
-app.listen(3000, () => {
-  console.log("Server running. Use our API on port: 3000");
-});
+  app.listen(PORT, () => {
+    console.log(`Server running. Use our API on port: ${PORT}.`);
+  });
+};
 
-import { mongoose } from "mongoose";
-//console.log(process.env.DATABASE_URL);
+startServer();
 
-const connection = mongoose.connect(process.env.DATABASE_URL);

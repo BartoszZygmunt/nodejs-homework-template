@@ -2,7 +2,7 @@ import path from "path";
 import { promises as fs } from "fs";
 
 const contactsPath = path.join(process.cwd(), "db", "contacts.json");
-console.log(contactsPath);
+//console.log(contactsPath);
 
 export const readContacts = async () => {
   try {
