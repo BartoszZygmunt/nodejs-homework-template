@@ -1,5 +1,5 @@
 export const notFoundHandler = (req, res) => {
-  res.status(404).json({ message: `Whooops - Not Found ${req.path}` });
+  res.status(404).json({ message: `Sorry, not found ${req.path}` });
 };
 
 export const internalErrorHandler = (err, req, res, next) => {

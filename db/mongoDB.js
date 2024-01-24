@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-const { DATABASE_URL: uriDB } = process.env;
+const { DATABASE_URL: uriDBpath } = process.env;
 
-const connection = mongoose.connect(uriDB);
+const connection = mongoose.connect(uriDBpath);
 
 export const connectToMongoDB = async () => {
   try {

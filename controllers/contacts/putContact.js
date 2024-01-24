@@ -25,7 +25,7 @@ export const putContact = async (req, res, next) => {
       data: { contactId, ...body },
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: error.message,
     });
   }

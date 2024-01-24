@@ -9,7 +9,7 @@ export const deleteContact = async (req, res, next) => {
       message: "contact deleted",
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: error.message,
     });
   }

@@ -8,7 +8,7 @@ export const getContacts = async (req, res, next) => {
       data: contacts,
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: error.message,
     });
   }

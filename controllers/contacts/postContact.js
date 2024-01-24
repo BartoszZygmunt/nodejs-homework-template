@@ -26,7 +26,7 @@ export const postContact = async (req, res, next) => {
       data: newContact,
     });
   } catch (error) {
-    res.status(400).json({
+    return res.status(400).json({
       message: error.message,
     });
   }

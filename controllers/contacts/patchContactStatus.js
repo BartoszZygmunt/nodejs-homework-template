@@ -19,7 +19,7 @@ export const patchContactStatus = async (req, res, next) => {
       data: contact,
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: error.message,
     });
   }
