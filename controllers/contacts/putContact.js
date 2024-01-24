@@ -6,10 +6,9 @@ export const putContact = async (req, res, next) => {
     const { contactId } = req.params;
 
     if (Object.keys(req.body).length === 0) {
-      res.status(400).json({
+      return res.status(400).json({
         message: "missing fields",
       });
-      return;
     }
 
     const { value, error } = contactSchema.validate(req.body);
@@ -29,7 +28,7 @@ export const putContact = async (req, res, next) => {
       data: updatedContact,
     });
   } catch (error) {
-    res.status(404).json({
+    return res.status(404).json({
       message: error.message,
     });
   }
