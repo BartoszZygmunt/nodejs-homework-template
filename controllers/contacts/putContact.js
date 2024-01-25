@@ -30,3 +30,5 @@ export const putContact = async (req, res, next) => {
     });
   }
 };
+
+//wygeneruj kod do logowania
