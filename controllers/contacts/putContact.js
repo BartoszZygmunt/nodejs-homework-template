@@ -31,4 +31,4 @@ export const putContact = async (req, res, next) => {
   }
 };
 
-//wygeneruj kod do logowania
+//wygeneruj kod do logowania nr 1...
