@@ -38,6 +38,8 @@
     "#helpers/*": "./helpers/*",
     "#middleware/*": "./middleware/*",
     "#models/*": "./models/*",
-    "#routes/*": "./routes/*"
+    "#routes/*": "./routes/*",
+    "#validators/*": "./validators/*",
+    "#config/*": "./config/*"
   }
 }
