@@ -4,7 +4,7 @@ import { config } from "dotenv";
 import User from "#models/user.js";
 
 config();
-const secret = process.env.SECRET;
+const secret = process.env.JWT_SECRET;
 
 export const loginUser = async (req, res, next) => {
   try {
