@@ -1,25 +1,21 @@
-# ContactManager API
+## ContactManager API
 
-The "ContactManager" project is a foundational API service built on Node.js for managing contacts. It enables users to register accounts and manage contacts within an address book. Through this API, users can sign in, log in and out, update avatars or subscription types, list contacts, retrieve specific ones, add new contacts, update existing ones, and remove contacts. Moreover, it integrates user authentication and authorization mechanisms, ensuring secure interactions and limiting certain actions to authorized users.
+The "ContactManager" project is a fundamental Node.js-based API service tailored for managing contacts. It enables users to establish accounts and conduct operations on contacts retained within an address book. This API provides endpoints for registration, authentication, session management, avatar updates, subscription type modifications, contact listing, specific contact retrieval, contact addition, contact updates, and contact removal. Moreover, it incorporates user authentication mechanisms and authorized access controls to guarantee secure interactions and limit certain functionalities to authenticated users.
 
-#### In order to execute this project, the following prerequisites are required:
-
-- **Node.js** (>= v18r)
-- **MongoDB** database (using Mongoose)
-
-#### Installation
+## Installation
 
 1. Clone this repository.
-2. Run `npm install`
-3. Update `.env` file with the variables set:
+2. Run `npm install`.
+3. Update `.env` file in the root directory with the variables set:
    - `DB_HOST`: Your MongoDB database connection URL
-   - `JWT_SECRET`: Secret key for JWT token
+   - `SECRET`: Secret key
+   - `BASE_URL`: 'http://127.0.0.1:3000' or your local server URL
 
 ## Scripts
 
-- `npm start`: Launches the application
+- `npm start`: Starts the application in production mode, granting access to contact management via the command-line interface.
 
-#### 1. User registration
+## 1. User registration
 
 Register a new user.
 
@@ -31,18 +27,18 @@ Register a new user.
 
 ```json
 {
-  "email": "myemail@gmail.com",
-  "password": "myPassword"
+  "email": "myEmail@domain.com",
+  "password": "blablabla"
 }
 ```
 
 **Response status:**
 
-- 201 Created - Registration success response
+- 201 Created - Registration success
 - 409 Conflict - Registration conflict error - "Email in use"
 - 400 Bad Request - Registration validation error
 
-#### 2. User log in
+## 2. User log in
 
 Log in an existing user.
 
@@ -54,8 +50,8 @@ Log in an existing user.
 
 ```json
 {
-  "email": "myemail@google.com",
-  "password": "myPassword"
+  "email": "myEmail@google.com",
+  "password": "blablabla"
 }
 ```
 
@@ -65,7 +61,7 @@ Log in an existing user.
 - 400 Bad Request - Login validation error
 - 401 Unauthorized - Login auth error
 
-#### 3. User log out
+## 3. User log out
 
 Log out a user.
 
@@ -78,7 +74,7 @@ Log out a user.
 - 204 No Content - Logout success response
 - 401 Unauthorized - Logout unauthorized error
 
-#### 4. Get user info
+## 4. Get user info
 
 Get info about existing user.
 
@@ -88,10 +84,10 @@ Get info about existing user.
 
 **Response status:**
 
-- 200 OK - Current user success response
-- 401 Unauthorized - Current user unauthorized error
+- 200 OK - Current user - success
+- 401 Unauthorized - Unauthorized error
 
-#### 5. Update subscription
+## 5. Update subscription
 
 Update user subscription type.
 
@@ -104,16 +100,16 @@ Update user subscription type.
 
 ```json
 {
-  "subscription": "starter" // "starter" | "pro" |
+  "subscription": "starter"
 }
 ```
 
 **Response status:**
 
-- 200 OK - Update subscription success
-- 401 Unauthorized - Update subscription unauthorized error
+- 200 OK - Update success
+- 401 Unauthorized - unauthorized error
 
-#### 6. Update avatar
+## 6. Update avatar
 
 Update user avatar.
 
@@ -125,12 +121,12 @@ Update user avatar.
 
 **Response status:**
 
-- 200 OK - Update avatar success response
-- 401 Unauthorized - Update avatar unauthorized error
+- 200 OK - Update success
+- 401 Unauthorized - unauthorized error
 
-### **Contacts endpoints**
+## **Contacts endpoints**
 
-#### 1. List Contacts
+## 1. List Contacts
 
 Get a list of all contacts in the address book.
 
@@ -162,22 +158,22 @@ Get a list of all contacts in the address book.
 ]
 ```
 
-##### Pagination
+## Pagination
 
-The Contacts API offers pagination functionality, enabling the retrieval of contacts in a paginated manner. Users have the ability to set the page and limit parameters in the API requests to manage the number of contacts displayed per page and navigate through the contact list.
+The Contacts API provides pagination capabilities, allowing users to retrieve contacts in a paginated format. Users can specify the page and limit parameters in their API requests to control the number of contacts shown per page and navigate through the contact list accordingly.
 
-###### Pagination Parameters:
+## Parameters:
 
-- **page:** Represents the page number for the requested contacts (e.g., page=1, page=2).
-- **limit:** Indicates the maximum number of contacts to display on a single page (e.g., limit=10, limit=20). Dafault: limit=20
+- **page:** - page number (e.g., page=10).
+- **limit:** - maximum number of contacts on a single page (e.g., limit=10)
 - **Example usage:** `/api/contacts?page=1&limit=10`
 
-##### Filtering Contacts by Favorites
+## Filtering by Favorites
 
-The Contacts API supports filtering contacts based on their favorite status. By appending favorite=true to the API endpoint, you can retrieve contacts marked as favorites.
+The Contacts API facilitates filtering contacts according to their favorite status. By adding favorite=true to the API endpoint, users can fetch contacts that are marked as favorites.
 **Usage:** `/api/contacts?favorite=true`
 
-### 2. Get Contact by ID
+## 2. Get Contact by ID
 
 Get details of a specific contact based on its ID.
 
@@ -195,14 +191,14 @@ Get details of a specific contact based on its ID.
 
 ```json
 {
-  "id": "05olLMgyVQdWRwgKfg5J6",
-  "name": "Cyrus Jackson",
-  "email": "nibh@semsempererat.com",
-  "phone": "(501) 472-5218"
+  "id": "bgoMgyVQdWRbfd5",
+  "name": "Adam Nowak",
+  "email": "myMail@domain.com",
+  "phone": "997 998 999"
 }
 ```
 
-### 3. Add New Contact
+## 3. Add New Contact
 
 Add a new contact to the address book.
 
@@ -220,13 +216,13 @@ Add a new contact to the address book.
 
 ```json
 {
-  "name": "Adam",
-  "email": "adamnowak@gmail.com",
-  "phone": "997998999"
+  "name": "MyName",
+  "email": "muEmail@google.com",
+  "phone": "123123123"
 }
 ```
 
-### 4. Update Contact
+## 4. Update Contact
 
 Update the data of a specific contact based on its ID.
 
@@ -241,13 +237,13 @@ Update the data of a specific contact based on its ID.
 - 401 Unauthorized
 - 404 Not Found
 
-### 5. Remove Contact
+## 5. Remove Contact
 
 Delete a specific contact based on its ID.
 
 - **Path:** `/api/contacts/:contactId`
 - **Method:** DELETE
-- **URL Parameters:** `contactId - Contact ID`
+- **URL Parameters:** `Contact ID`
 
 **Response status:**
 
@@ -255,7 +251,7 @@ Delete a specific contact based on its ID.
 - 401 Unauthorized
 - 404 Not Found
 
-### 6. Update Contact Status
+## 6. Update Contact Status
 
 Update contact status as favorite.
 
