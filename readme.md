@@ -148,12 +148,6 @@ Get a list of all contacts in the address book.
     "name": "Allen Raymond",
     "email": "nulla.ante@vestibul.co.uk",
     "phone": "(992) 914-3792"
-  },
-  {
-    "id": "qdggE76Jtbfd9eWJHrssH",
-    "name": "Chaim Lewis",
-    "email": "dui.in@egetlacus.ca",
-    "phone": "(294) 840-6685"
   }
 ]
 ```
