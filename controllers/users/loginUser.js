@@ -22,7 +22,7 @@ export const loginUser = async (req, res, next) => {
     }
 
     const { id, subscription, avatarURL } = user;
-    const token = jwt.sign({ id }, secret, { expiresIn: "12h" });
+    const token = jwt.sign({ id }, secret, { expiresIn: "6h" });
 
     user.token = token;
     await user.save();
